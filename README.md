@@ -61,7 +61,7 @@ Each key represents the input currency, the contents of the coresponding object 
 You can change the values in any manner you like to add, remove or change currencies. However do make sure to not change the structure of the json, otherwise the calculator will no longer work.
 
 #### Building your changes
-After you are done with your changes you may quit watchify. You can then use browserfy and uglify to create a production ready version. First install the tools:
+After you are done with your changes you may quit watchify. You can then uglify to create a production ready version. First install the tool:
 ```
 npm install -g uglify-es
 ```
@@ -69,7 +69,7 @@ then use the following command to build you minified version:
 ```
 npm run production
 ```
-This will rebuild the currency.min.js file in your dist folder.
+This will rebuild the currency.min.js file in your dist folder. This file you can then include (as discussed above) on your webpage.
 
 ## Use Cases
 * As a user I want to be able to enter a amount in my input currency
