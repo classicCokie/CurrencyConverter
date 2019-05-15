@@ -5,6 +5,7 @@ window.onload = function(){
 
     renderCalculator();
     document.getElementById("currency-input-value").addEventListener("input", calculateCurrency);
+    document.getElementById("currency-output-unit").addEventListener("change", calculateCurrency);
     document.getElementById("currency-input-unit").addEventListener("change", changeInputCurrencyUnit);
 
     function renderCalculator() {
