@@ -47,14 +47,17 @@ window.onload = function(){
     function createCalculaterTemplate(inputOptions, outputOptions) {
         return`<div class="currency-container">
                     <div class="currency-row">
-                        <input id="currency-input-value"/>
-                        <select id="currency-input-unit">
+                        <h1 class="currency-title"> Currency Calculator </h1>
+                    </div>
+                    <div class="currency-row">
+                        <input class="currency-input" id="currency-input-value"/>
+                        <select class="currency-select" id="currency-input-unit">
                             ${inputOptions}
                         </select>
                     </div>
                     <div class="currency-row">
-                        <input id="currency-output-value"/>
-                        <select id="currency-output-unit" />
+                        <input class="currency-input" id="currency-output-value"/>
+                        <select class="currency-select" id="currency-output-unit" />
                             ${outputOptions}
                         </select>
                     </div>

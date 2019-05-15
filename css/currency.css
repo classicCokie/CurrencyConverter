@@ -1,0 +1,33 @@
+.currency-container {
+    background-color: #14608e;
+    padding: 3%;
+    width: fit-content;
+    border-radius: 10px;
+}   
+.currency-row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+}
+.currency-title {
+    color: white;
+    font-family: Arial;
+}
+
+.currency-input {
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px gray;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.currency-select {
+    height: 40px;
+    min-width: 150px;
+    border-radius: 5px;
+    border: solid 1px gray;
+    font-size: 13px;
+}
