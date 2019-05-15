@@ -1,0 +1,25 @@
+{
+  "name": "currencyconverter",
+  "version": "1.0.0",
+  "description": "## Use Cases * As a user I want to be able to enter a amount in my input currency * As a user I want to see the converted output currency after I entered the input currency * As a user I want to be able to change the currency Unit for out put and input * As a developer I want to be able to ovveride the currencys with my own * As a developer I want to have minimal effort to integrate the calculator in my webpage",
+  "main": "index.js",
+  "scripts": {
+    "develop": "watchify js/currency.js -o dist/currency.dev.js",
+    "production": "uglifyjs dist/currency.dev.js -o dist/currency.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classicCokie/CurrencyConverter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classicCokie/CurrencyConverter/issues"
+  },
+  "homepage": "https://github.com/classicCokie/CurrencyConverter#readme",
+  "dependencies": {
+    "g": "^2.0.1",
+    "watchify": "^3.11.1"
+  }
+}

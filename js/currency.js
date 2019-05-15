@@ -1,17 +1,18 @@
 window.onload = function(){
-    const DEFAULT_CURRENCY = "Euro";
+    var config = require('./config.js')
+    var DEFAULT_CURRENCY = config.defaultCurrency;
+    var CURRENCY_UNITS = config.currencyUnits;
+
     renderCalculator();
     document.getElementById("currency-input-value").addEventListener("input", calculateCurrency);
     document.getElementById("currency-input-unit").addEventListener("change", changeInputCurrencyUnit);
 
     function renderCalculator() {
         var directive = document.getElementById('currency-calculator');
-        var units = getCurrencyUnits();
-        var inputOptions = createDropdownOptions(units);
-        var outputOptions = createDropdownOptions(units[DEFAULT_CURRENCY]);
+        var inputOptions = createDropdownOptions(CURRENCY_UNITS);
+        var outputOptions = createDropdownOptions(CURRENCY_UNITS[DEFAULT_CURRENCY]);
         directive.innerHTML = createCalculaterTemplate(inputOptions, outputOptions);
     }
-
 
     function createDropdownOptions(units) {
         return Object.keys(units).reduce((result, key) => {
@@ -24,15 +25,16 @@ window.onload = function(){
     function calculateCurrency() { 
         var conversionRateElement = document.getElementById('currency-output-unit');
         var conversionRate = conversionRateElement.options[conversionRateElement.selectedIndex].value;
-        var ouputValue = this.value * conversionRate;
+        var inputValue = document.getElementById('currency-input-value').value;
+        var ouputValue = inputValue * conversionRate;
         document.getElementById('currency-output-value').value = ouputValue;
     }
 
     function changeInputCurrencyUnit() {
-        var units = getCurrencyUnits();
         var outputUnitsElement = document.getElementById('currency-output-unit');
         outputUnitsElement.options.length = 0;
-        createSelectOptions(outputUnitsElement, units[this.value] );
+        createSelectOptions(outputUnitsElement, CURRENCY_UNITS[this.value] );
+        calculateCurrency();
     }
 
     function createSelectOptions(outputUnitsElement,newOptions) {
@@ -63,27 +65,4 @@ window.onload = function(){
                     </div>
                 </div>`
     }
-
-    function getCurrencyUnits() {
-        return {
-                'Euro': {
-                    'US Dollar': 1.2897,
-                    'Schweizer Franken': 1.2897,
-                    'Britisch Pfund': 1.2897
-                },
-                'US Dollar': {
-                    'JPY': 109.6200
-                },
-                'Schweizer Franken': {
-                    'US Dollar': 1.2897
-                },
-                'Britisch Pfund': {
-                    'CAD': 1.7574
-                }
-                
-            };
-    }
-
-
-
 }
